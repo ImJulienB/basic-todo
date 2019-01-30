@@ -23,7 +23,9 @@ header {
 	line-height: 60px;
 	position: fixed;
 	top: 0;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+			0 3px 1px -2px rgba(0,0,0,0.12),
+			0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
 header > .title {
@@ -40,6 +42,9 @@ footer {
 	color: #fafafa;
 	font-size: 20px;
 	line-height: 60px;
+	box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.14),
+			0 -3px 1px -2px rgba(0,0,0,0.12),
+			0 -1px 5px 0 rgba(0,0,0,0.20);
 }
 
 footer > .info {
@@ -53,6 +58,9 @@ footer > .bottom {
 	bottom: 0;
 	background-color: #263238;
 	color: #FAFAFA75;
+	box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.14),
+			0 -3px 1px -2px rgba(0,0,0,0.12),
+			0 -1px 5px 0 rgba(0,0,0,0.20);
 }
 
 
@@ -220,7 +228,7 @@ tr > td:nth-child(4) {
 }
 
 .form-control-input[type="datetime-local"]:focus {
-	padding-top: 24px;
+	padding-top: 16px;
 	padding-left: 8px;
 }
 
