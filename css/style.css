@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body, html {
+	height: 100%; width: 100%;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: #fafafa;
+	z-index: 0;
+}
+
+
+
+
+
+/* Header & footer styling */
+
+header {
+	z-index: 2;
+	height: 60px; width: 100%;
+	background-color: #009688;
+	color: #fafafa;
+	font-size: 22px;
+	line-height: 60px;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+header > .title {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+footer {
+	z-index: 1;
+	height: 240px; width: 100%;
+	background-color: #455a64;
+	position: fixed;
+	bottom: 0;
+	color: #fafafa;
+	font-size: 20px;
+	line-height: 60px;
+}
+
+footer > .info {
+	padding-left: 16px;
+}
+
+footer > .bottom {
+	width: 100%;
+	padding-left: 16px;
+	position: fixed;
+	bottom: 0;
+	background-color: #263238;
+	color: #FAFAFA75;
+}
+
+
+
+
+
+/* Content class styling */
+
+.content {
+	margin-top: 76px;
+	margin-bottom: 300px;
+}
+
+
+
+
+
+/* Table styling */
+
+.tasks-table {
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+	border-collapse: collapse;
+	color: #212121;
+}
+
+th, td {
+	padding: 12px;
+}
+
+th {
+	border-bottom: 3px solid #212121;
+}
+
+tr > td:nth-child(1) {
+	width: 10%;
+}
+
+tr > td:nth-child(2) {
+	width: 20%;
+}
+
+tr > td:nth-child(3) {
+	width: 55%;
+	text-align: left;
+}
+
+tr > td:nth-child(4) {
+	width: 15%;
+}
+
+
+
+
+
+/* Buttons styling */
+
+.btn-add {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	background-color: #009688;
+	color: #fafafa;
+	font-size: 16px;
+	line-height: 56px;
+	height: 56px; width: 74px;
+	padding-left: 8px; padding-right: 8px;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	margin-left: 16px;
+}
+
+.btn-add:hover {
+	background-color: #26a69a;
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
+}
+
+.btn-add:active {
+	background-color: #4db6ac;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+.btn-edit, .btn-delete {
+	height: 24px; width: 24px;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	background-size: contain;
+}
+
+.btn-add:focus, .btn-edit:focus, .btn-delete:focus {
+	outline: none;
+}
+
+.btn-add:hover, .btn-edit:hover, .btn-delete:hover {
+	cursor: pointer;
+}
+
+.btn-edit {
+	margin-right: 8px;
+	background-image: url("../img/edit_black.png");
+}
+
+.btn-delete {
+	background-image: url("../img/delete_black.png");
+}
+
+
+
+
+
+/* Form styling */
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+}
+
+.form-control {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto;
+}
+
+.form-group {
+	margin-left: 16px;
+	margin-bottom: 32px;
+	position: relative;
+}
+
+.form-group-helper {
+	margin-bottom: 14px;
+	position: relative;
+}
+
+.form-control-input {
+	display: block;
+	background-color: rgba(0, 0, 0, 12%);
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color: rgba(0, 0, 0, 50%);
+	height: 56px;
+	width: 280px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #00000099;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-left: 12px;
+	padding-right: 12px;
+	transition: all 0.2s;
+}
+
+.form-control-input[type="datetime-local"] {
+	padding-top: 16px;
+	padding-left: 8px;
+}
+
+.form-control-input:focus {
+	outline: none;
+	box-shadow: none;
+	border-width: 2px;
+	border-color: #009688;
+	padding-top: 17px;
+}
+
+.form-control-input[type="datetime-local"]:focus {
+	padding-top: 24px;
+	padding-left: 8px;
+}
+
+.form-label {
+	margin-left: 12px;
+	color: black;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	top: 18px;
+	transition: 0.2s ease all;
+}
+
+.form-control-input[type="datetime-local"] ~ .form-label {
+	margin-left: 12px;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	pointer-events: none;
+	top: 10px;
+	transition: 0.2s ease all;
+}
+
+.form-control-input:focus ~ .form-label, .form-control-input.used ~ .form-label {
+	font-weight: bold;
+	top: 10px;
+	font-size: 12px;
+	color: #009688;
+}
