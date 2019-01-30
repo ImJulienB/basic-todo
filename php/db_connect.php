@@ -1,5 +1,6 @@
 <?php
 
+// This is needed somehow, idk why
 header("Content-type: application/json; charset=utf-8");
 
 try {

@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
 		<title>Basic TODO list</title>
+
+		<!-- I don't want to deal with random characters -->
+		<meta charset="UTF-8">
+
+		<!-- So it doesn't look small as hell on smaller screens -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- My own stylesheet -->
 		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Jquery so I can use AJAX and other stuff -->
+		<script src="js/jquery-3.3.1.min.js"></script>
+
 	</head>
 	<body>
 		<header>
@@ -12,7 +22,10 @@
 		</header>
 
 		<div class="content">
+			<!-- Centering the little add form -->
 			<div class="flex-center">
+
+				<!-- Add form -->
 				<form class="form-control">
 					<div class="form-group">
 						<input type="text" name="message" id="message" class="form-control-input">
@@ -26,10 +39,17 @@
 					<input type="hidden" name="action" id="action" value="add">
 				</form>
 			</div>
+
+			<!-- Tasks list -->
 			<table class="tasks-table">
 				<tr>
 					<th>Number</th><th>Date</th><th>Task</th><th>Actions</th>
 				</tr>
+				<!-- Tasks will be added over here like this:
+				<tr>
+					<td>##</td><td>DD/MM/AAAA HH:MM:SS</td><td>Lorem ipsum...</td><td>Buttons here</td>
+				</tr>
+				-->
 			</table>
 		</div>
 
@@ -37,9 +57,6 @@
 			<div class="info">This is a footer which will contain random info later.</div>
 			<div class="bottom">(c) 2019 Julien Bruguet</div>
 		</footer>
-
-		<!-- Jquery so I can use AJAX and other stuff -->
-		<script src="js/jquery-3.3.1.min.js"></script>
 
 		<!-- Some script for my form (something I am working on ;-) ) -->
 		<script src="js/forms.js"></script>

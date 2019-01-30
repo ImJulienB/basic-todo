@@ -1,18 +1,19 @@
+// This script fires once you load the page, no event listeners here!
 $(function() {
     $.ajax({
-        url: "php/tasks_request.php",
-        success: function(data) {
-            $.each(data, function(i, item) {
-                $(".tasks-table").append(
-                    $('<tr>').append(
-                        $('<td>').text(item.id),
-                        $('<td>').text(item.date),
-                        $('<td>').text(item.name),
-                        $('<td>').append(
+        url: "php/tasks_request.php", // The script to use
+        success: function(data) { // In case of success
+            $.each(data, function(i, item) { // Foreach equivalent, to show the result of the script
+                $(".tasks-table").append( // Adding stuff to the table
+                    $('<tr>').append( // Adding stuff to a newly created tr
+                        $('<td>').text(item.id), // Adding the ID to the first td
+                        $('<td>').text(item.date), // Adding the date & time to the second td
+                        $('<td>').text(item.name), // Adding the task's content to the third td
+                        $('<td>').append( // Adding the buttons here, have to open this one
                             $('<button class="btn-edit" value="' + item.id + '"></button><button class="btn-delete" value="' + item.id + '"></button>')
-                        )
-                    )
-                );
+                        ) // Closing the last td
+                    ) // Closing the tr
+                ); // Done adding stuff to the table
             });
         }
     })
