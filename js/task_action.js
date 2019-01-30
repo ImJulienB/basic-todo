@@ -37,7 +37,7 @@ $(function() {
     });
 
     $(".tasks-table").on("click", ".btn-delete", function() {
-        var action = "delete";
+        var action = "remove";
         var id = $(this).val();
         $.ajax({
             type: 'GET',
@@ -50,7 +50,7 @@ $(function() {
                 location.reload();
             },
             error: function() {
-                alert("no");
+                location.reload();
             }
         });
     });
