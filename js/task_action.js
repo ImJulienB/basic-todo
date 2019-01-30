@@ -1,57 +1,70 @@
 $(function() {
+    // Handling the add button click event
     $(".btn-add").click(function() {
+        // Grabbing data from the form
         var form = $(".form-control");
         var formData = $(form).serialize();
+        // When the user clicks submit on the form
         $(".form-control").submit(function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent the default action to happen
+            // a.k.a the form sending data to another page rather that doing it with AJAX
             $.ajax({
-                data: formData,
-                url: "php/tasks_action.php",
-                success: function() {
-                    location.reload();
+                data: formData, // Feeding AJAX some data to send (Hope it likes it)
+                url: "php/tasks_action.php", // Script to use
+                success: function() { // In case of success
+                    location.reload(); // Reload the current page
                 },
-                error: function() {
-                    location.reload();
+                error: function() { // In case of error
+                    //alert("An error occured"); // Indicate that an error happened
+                    // (Every scripts on this file throws errors yet everything works somehow)
+                    location.reload(); // Reload
                 }
             });
         });
     });
     
+    // Handling the edit button click event
     $(".tasks-table").on("click", ".btn-edit", function() {
-        var action = "edit";
-        var id = $(this).val();
+        var action = "edit"; // Used for AJAX's data, indicating we want to edit something
+        var id = $(this).val(); // Grabbing the ID which is the button's value
         $.ajax({
-            type: 'GET',
-            data: {
-                "action": action,
-                "id": id
+            data: { // Putting some data to send
+                action: action,
+                id: id
             },
-            url: "php/tasks_action.php",
-            success: function() {
-                location.reload();
+            url: "php/tasks_action.php", // Script to use
+            success: function() { // In case of success
+                location.reload(); // Reload the current page
             },
-            error: function() {
-                location.reload();
+            error: function() { // In case of error
+                //alert("An error occured"); // Indicate that an error happened
+                // (Every scripts on this file throws errors yet everything works somehow)
+                location.reload(); // Reload
             }
         });
     });
 
+    // Handling the remove button click event
     $(".tasks-table").on("click", ".btn-delete", function() {
-        var action = "remove";
-        var id = $(this).val();
-        $.ajax({
-            type: 'GET',
-            data: {
-                action: action,
-                id: id
-            },
-            url: "php/tasks_action.php",
-            success: function() {
-                location.reload();
-            },
-            error: function() {
-                location.reload();
-            }
-        });
+        // Making sure the user wants to remove the entry
+        if (confirm("Are you sure you want to remove this task?")) {
+            var action = "remove"; // Used for AJAX's data, indicating we want to remove something
+            var id = $(this).val(); // Grabbing the ID which is the button's value
+            $.ajax({
+                data: { // Putting some data to send
+                    action: action,
+                    id: id
+                },
+                url: "php/tasks_action.php", // Script to use
+                success: function() { // In case of success
+                    location.reload(); // Reload the current page
+                },
+                error: function() { // In case of error
+                    //alert("An error occured"); // Indicate that an error happened
+                    // (Every scripts on this file throws errors yet everything works somehow)
+                    location.reload(); // Reload
+                }
+            });
+        }
     });
 });
