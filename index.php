@@ -55,7 +55,7 @@
 
 		<footer>
 			<div class="info">This is a footer which will contain random info later.</div>
-			<div class="bottom">(c) 2019 Julien Bruguet</div>
+			<div class="bottom"><img class="copyright-footer" src="img/copyright_white.png" width="16px"> 2019 Julien Bruguet</div>
 		</footer>
 
 		<!-- Some script for my form (something I am working on ;-) ) -->

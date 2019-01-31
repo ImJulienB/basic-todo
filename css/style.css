@@ -63,6 +63,10 @@ footer > .bottom {
 			0 -1px 5px 0 rgba(0,0,0,0.20);
 }
 
+.copyright-footer {
+	opacity: 0.55;
+}
+
 
 
 
@@ -145,10 +149,12 @@ tr > td:nth-child(4) {
 }
 
 .btn-edit, .btn-delete {
-	height: 24px; width: 24px;
+	height: 40px; width: 40px;
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
-	background-size: contain;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .btn-add:focus, .btn-edit:focus, .btn-delete:focus {
