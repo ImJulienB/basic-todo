@@ -28,11 +28,11 @@
 				<!-- Add form -->
 				<form class="form-control">
 					<div class="form-group">
-						<input type="text" name="message" id="message" class="form-control-input">
+						<input type="text" name="message" id="message" class="form-control-input" required>
 						<label for="message" class="form-label">Content</label>
 					</div>
 					<div class="form-group">
-						<input type="datetime-local" name="date" id="date" class="form-control-input">
+						<input type="datetime-local" name="date" id="date" class="form-control-input" required>
 						<label for="date" class="form-label">Date</label>
 					</div>
 					<input type="submit" name="submit" id="submit" value="Add" class="btn-add">
@@ -43,7 +43,7 @@
 			<!-- Tasks list -->
 			<table class="tasks-table">
 				<tr>
-					<th>Number</th><th>Date</th><th>Task</th><th>Actions</th>
+					<th>#</th><th>Date</th><th>Task</th><th>Actions</th>
 				</tr>
 				<!-- Tasks will be added over here like this:
 				<tr>
@@ -54,8 +54,7 @@
 		</div>
 
 		<footer>
-			<div class="info">This is a footer which will contain random info later.</div>
-			<div class="bottom"><img class="copyright-footer" src="img/copyright_white.png" width="16px"> 2019 Julien Bruguet</div>
+			© 2019 Julien Bruguet
 		</footer>
 
 		<!-- Some script for my form (something I am working on ;-) ) -->
