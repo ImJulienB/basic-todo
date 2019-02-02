@@ -27,7 +27,20 @@ $(function() {
     $(".tasks-table").on("click", ".btn-edit", function() {
         var action = "edit"; // Used for AJAX's data, indicating we want to edit something
         var id = $(this).val(); // Grabbing the ID which is the button's value
-        $.ajax({
+
+        var dateID = "#date-" + id;
+        var contentID = "#task-content-" + id;
+
+        var date = $(dateID).text();
+        var content = $(contentID).text();
+
+        console.log(date);
+        console.log(content);
+
+        $(dateID).html("<input type='datetime-local' name='date' value='" + date + "'>");
+        $(contentID).html("<input type='text' name='content' value='" + content + "'><input type='submit' name='btn-edit-send' value='Edit'>");
+
+        /*$.ajax({
             data: { // Putting some data to send
                 action: action,
                 id: id
@@ -41,7 +54,7 @@ $(function() {
                 // (Every scripts on this file throws errors yet everything works somehow)
                 location.reload(); // Reload
             }
-        });
+        });*/
     });
 
     // Handling the remove button click event

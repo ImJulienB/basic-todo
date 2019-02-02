@@ -2,13 +2,11 @@
 
 require("db_connect.php");
 
-$request = $db->prepare("SELECT * FROM task");
-$request->execute();
+$request = $db->prepare("SELECT * FROM task"); // Preparing the request to grab everything from the task table
+$request->execute(); // Firing it
 
-$response = $request->fetchAll(PDO::FETCH_ASSOC);
+$response = $request->fetchAll(PDO::FETCH_ASSOC); // Fetching data from the request
 
-//var_dump($response);
-
-echo json_encode($response);
+echo json_encode($response); // Encoding it in JSON and sending it back to the AJAX script for display
 
 ?>

@@ -205,6 +205,10 @@ tr > td:nth-child(4) {
 	position: relative;
 }
 
+.form-group:first-child {
+	margin-left: 0;
+}
+
 .form-group-helper {
 	margin-bottom: 14px;
 	position: relative;

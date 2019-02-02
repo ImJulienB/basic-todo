@@ -8,26 +8,23 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 	switch ($action) { // Checking the value of the action variable
 		case "add":
 			// Adding an element
-			if (isset($_GET["message"])) { // Checking if a message was added to the GET request
-				// Grabbing date's value
-				//$date = $_GET["date"];
-				// Grabbing message's value + SQL injections proofing
-				$date = $db->quote($_GET["date"]);
-				$message = $db->quote($_GET["message"]);
-				$prepare = "INSERT INTO task (date, name) VALUES ($date, $message)";
+			if (isset($_GET["content"])) { // Checking if a content was added to the GET request
+				$content = htmlspecialchars($_GET["content"]); // Grabbing content's value + SQL injections proofing
+				$content = $db->quote($content); // Putting the content in quotes just to avoid troubles
+				$date = $db->quote($_GET["date"]); // Doing the same with the task's date
+				$prepare = "INSERT INTO task (date, content) VALUES ($date, $content)"; // Storing the request in a string variable
 				$add = $db->prepare($prepare); // Preparing the request
-				$add->execute(); // Executing the request 
-				echo "success";
+				$add->execute(); // Executing the request
 			}
 			break;
 
 		case "update":
 			// Editing an element
-			if (isset($_GET["id"]) && isset($_GET["message"])) { // Checking if "id" and "name" exists as a GET parameter
-				$message = $_GET["message"]; // Grabbing their values
+			if (isset($_GET["id"]) && isset($_GET["content"])) { // Checking if "id" and "content" exists as a GET parameter
+				$content = htmlspecialchars($_GET["content"]); // Grabbing their values (+ SQL injection proofing the content)
 				$id = $_GET["id"];
-				$update = $db->prepare("UPDATE task SET 'name' = :message WHERE 'id' = :id"); // Preparing the request
-				$update->bindValue(":message", $message); // Binding values
+				$update = $db->prepare("UPDATE task SET 'content' = :content WHERE 'id' = :id"); // Preparing the request
+				$update->bindValue(":content", $content); // Binding values
 				$update->bindValue(":id", $id);
 				$update->execute(); // Executing the request
 			}
