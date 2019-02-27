@@ -1,11 +1,11 @@
 $(function() {
     // Handling the add button click event
-    $(".btn-add").click(function() {
+    $("#add-submit").click(function() {
         // Grabbing data from the form
-        var form = $(".form-control");
+        var form = $("#add-form");
         var formData = $(form).serialize();
         // When the user clicks submit on the form
-        $(".form-control").submit(function(event) {
+        form.submit(function(event) {
             event.preventDefault(); // Prevent the default action to happen
             // a.k.a the form sending data to another page rather that doing it with AJAX
             $.ajax({
@@ -25,36 +25,59 @@ $(function() {
     
     // Handling the edit button click event
     $(".tasks-table").on("click", ".btn-edit", function() {
-        var action = "edit"; // Used for AJAX's data, indicating we want to edit something
         var id = $(this).val(); // Grabbing the ID which is the button's value
 
         var dateID = "#date-" + id;
         var contentID = "#task-content-" + id;
 
-        var date = $(dateID).text();
-        var content = $(contentID).text();
+        var date = $(this).closest("tr").children(dateID).text();
+        date = date.replace(/\s/g, "T");
+        var content = $(this).closest("tr").children(contentID).text();
 
         console.log(date);
         console.log(content);
 
-        $(dateID).html("<input type='datetime-local' name='date' value='" + date + "'>");
-        $(contentID).html("<input type='text' name='content' value='" + content + "'><input type='submit' name='btn-edit-send' value='Edit'>");
+        document.getElementById("edit-content").value = content;
+        document.getElementById("edit-date").value = date;
+        document.getElementById("edit-id").value = id;
 
-        /*$.ajax({
-            data: { // Putting some data to send
-                action: action,
-                id: id
-            },
-            url: "php/tasks_action.php", // Script to use
-            success: function() { // In case of success
-                location.reload(); // Reload the current page
-            },
-            error: function() { // In case of error
-                //alert("An error occured"); // Indicate that an error happened
-                // (Every scripts on this file throws errors yet everything works somehow)
-                location.reload(); // Reload
+        var modal = document.getElementById("editmodal");
+        var span = document.getElementsByClassName("close")[0];
+
+        modal.style.display = "block";
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
-        });*/
+        }
+
+        $("#edit-submit").click(function() {
+            var form = $("#edit-form");
+            var formData = $(form).serialize();
+            console.log(formData);
+
+            form.submit(function(event) {
+                event.preventDefault(); // Prevent the default action to happen
+
+                $.ajax({
+                    data: formData, // Putting some data to send
+                    url: "php/tasks_action.php", // Script to use
+                    success: function() { // In case of success
+                        location.reload(); // Reload the current page
+                    },
+                    error: function(data) { // In case of error
+                        //alert("An error occured"); // Indicate that an error happened
+                        // (Every scripts on this file throws errors yet everything works somehow)
+                        location.reload(); // Reload
+                    }
+                });
+            });
+        });
     });
 
     // Handling the remove button click event
@@ -68,16 +91,9 @@ $(function() {
                     action: action,
                     id: id
                 },
-                url: "php/tasks_action.php", // Script to use
-                success: function() { // In case of success
-                    location.reload(); // Reload the current page
-                },
-                error: function() { // In case of error
-                    //alert("An error occured"); // Indicate that an error happened
-                    // (Every scripts on this file throws errors yet everything works somehow)
-                    location.reload(); // Reload
-                }
+                url: "php/tasks_action.php" // Script to use
             });
+            location.reload();
         }
     });
 });

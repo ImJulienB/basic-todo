@@ -20,13 +20,23 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 
 		case "update":
 			// Editing an element
-			if (isset($_GET["id"]) && isset($_GET["content"])) { // Checking if "id" and "content" exists as a GET parameter
-				$content = htmlspecialchars($_GET["content"]); // Grabbing their values (+ SQL injection proofing the content)
+			if (isset($_GET["id"]) && isset($_GET["edit-content"])) { // Checking if "id" and "content" exists as a GET parameter
+				$content = htmlspecialchars($_GET["edit-content"]); // Grabbing their values (+ SQL injection proofing the content)
+				$content = $db->quote($content);
 				$id = $_GET["id"];
-				$update = $db->prepare("UPDATE task SET 'content' = :content WHERE 'id' = :id"); // Preparing the request
-				$update->bindValue(":content", $content); // Binding values
-				$update->bindValue(":id", $id);
-				$update->execute(); // Executing the request
+				$date = $_GET["edit-date"];
+				$date = substr($date, 0, -3);
+				$date = $db->quote($date);
+				echo $content;
+				echo $id;
+				echo $date;
+				$prepare = "UPDATE task SET content = $content, date = $date WHERE id = $id";
+				$update = $db->prepare($prepare); // Preparing the request
+				try {
+					$update->execute(); // Executing the request
+				} catch(PDOException $e) { // If the database connection failed...
+				    echo $e->getMessage(); // ...throw and error message
+				}
 			}
 			break;
 
