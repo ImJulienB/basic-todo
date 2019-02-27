@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body, html {
+	height: 100%; width: 100%;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: #fafafa;
+	
+}
+
+body {
+	position: relative;
+  	min-height: 100%;
+}
+
+
+
+
+
+/* Header & footer styling */
+
+header {
+	z-index: 1;
+	height: 60px; width: 100%;
+	background-color: #009688;
+	color: #fafafa;
+	font-size: 22px;
+	line-height: 60px;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+			0 3px 1px -2px rgba(0,0,0,0.12),
+			0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+header > .title {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+footer {
+	z-index: 1;
+	font-size: 14px;
+	line-height: 36px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #263238;
+	color: #FAFAFA75;
+	box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.14),
+			0 -3px 1px -2px rgba(0,0,0,0.12),
+			0 -1px 5px 0 rgba(0,0,0,0.20);
+			padding-left: 16px;
+}
+
+
+
+
+
+/* Content class styling */
+
+.content {
+	padding-right: 15px;
+    padding-left: 15px;
+	margin-top: 76px;
+	margin-bottom: 44px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+	.content {
+    	width: 750px;
+	}
+}
+
+@media (min-width: 992px) {
+	.content {
+    	width: 970px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.content {
+    	width: 1170px;
+	}
+}
+
+
+
+
+
+/* Table styling */
+
+.tasks-table {
+	width: 100%;
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+	border-collapse: collapse;
+	color: #212121;
+}
+
+th, td {
+	padding: 12px;
+}
+
+th {
+	border-bottom: 3px solid #212121;
+}
+
+tr > td:nth-child(1) {
+	width: 48px;
+}
+
+tr > td:nth-child(2) {
+	width: 106px;
+}
+
+tr > th:nth-child(3), tr > td:nth-child(3) {
+	text-align: left;
+}
+
+tr > td:nth-child(4) {
+	width: 104px;
+}
+
+
+
+
+
+/* Buttons styling */
+
+.btn-add {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	background-color: #009688;
+	color: #fafafa;
+	font-size: 16px;
+	line-height: 56px;
+	height: 56px; width: 74px;
+	padding-left: 8px; padding-right: 8px;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	margin-left: 16px;
+}
+
+.btn-add:hover {
+	background-color: #26a69a;
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
+}
+
+.btn-add:active {
+	background-color: #4db6ac;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+}
+
+.btn-edit, .btn-delete {
+	height: 40px; width: 40px;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.btn-add:focus, .btn-edit:focus, .btn-delete:focus {
+	outline: none;
+}
+
+.btn-add:hover, .btn-edit:hover, .btn-delete:hover {
+	cursor: pointer;
+}
+
+.btn-edit {
+	margin-right: 8px;
+	background-image: url("../img/edit_black.png");
+}
+
+.btn-delete {
+	background-image: url("../img/delete_black.png");
+}
+
+
+
+
+
+/* Form styling */
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+}
+
+.form-control {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto;
+}
+
+.form-group {
+	margin-left: 16px;
+	margin-bottom: 32px;
+	position: relative;
+}
+
+.form-group:first-child {
+	margin-left: 0;
+}
+
+.form-group-helper {
+	margin-bottom: 14px;
+	position: relative;
+}
+
+.form-control-input {
+	display: block;
+	background-color: rgba(0, 0, 0, 12%);
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color: rgba(0, 0, 0, 50%);
+	height: 56px;
+	width: 280px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #00000099;
+	box-sizing: border-box;
+	padding-top: 15px;
+	padding-left: 12px;
+	padding-right: 12px;
+	transition: all 0.2s;
+}
+
+.form-control-input[type="datetime-local"] {
+	padding-top: 16px;
+	padding-left: 8px;
+}
+
+.form-control-input:focus {
+	outline: none;
+	box-shadow: none;
+	border-width: 2px;
+	border-color: #009688;
+	padding-top: 17px;
+}
+
+.form-control-input[type="datetime-local"]:focus {
+	padding-top: 16px;
+	padding-left: 8px;
+}
+
+.form-label {
+	margin-left: 12px;
+	color: black;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	top: 18px;
+	transition: 0.2s ease all;
+}
+
+.form-control-input[type="datetime-local"] ~ .form-label {
+	margin-left: 12px;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	pointer-events: none;
+	top: 10px;
+	transition: 0.2s ease all;
+}
+
+.form-control-input:focus ~ .form-label, .form-control-input.used ~ .form-label {
+	font-weight: bold;
+	top: 10px;
+	font-size: 12px;
+	color: #009688;
+}
+
+
+
+
+
+/* Modal */
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 5;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	position: relative;
+	background-color: #fafafa;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 40%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+
+.close {
+	color: #212121;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 2px 16px;
+	color: #212121;
+}
+
+.modal-body {
+	padding: 2px 16px;
+}
+
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #009688;
+	color: white;
+}
