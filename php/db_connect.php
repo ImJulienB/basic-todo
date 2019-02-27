@@ -25,7 +25,7 @@ $login = "root";
 $pwd = "";
 
 try {
-    $db = new PDO('mysql:host=localhost;dbname=todo-list', 'root', ''); // New PDO object to connect to the database
+    $db = new PDO('mysql:host='.$host.';dbname='.$dbname, $login, $pwd); // New PDO object to connect to the database
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Setting up some attributes for errors catching
 } catch(PDOException $e) { // If the database connection failed...
     $e->getMessage(); // ...throw and error message

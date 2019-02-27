@@ -20,5 +20,5 @@ $(function() {
                 ); // Done adding stuff to the table
             });
         }
-    })
+    });
 });
