@@ -14,6 +14,7 @@
 	</head>
 	<body>
 		<header>
+			<img src="img/event_note_white.png" class="header-logo">
 			<h1 class="title">Basic TODO list</h1>
 		</header>
 
@@ -25,7 +26,7 @@
 				<form id="add-form" class="form-control">
 					<div class="form-group">
 						<input type="text" name="content" id="content" class="form-control-input" required>
-						<label for="content" class="form-label">Content</label>
+						<label for="content" class="form-label">Task</label>
 					</div>
 					<div class="form-group">
 						<input type="datetime-local" name="date" id="date" class="form-control-input" required>
@@ -47,6 +48,8 @@
 				</tr>
 				-->
 			</table>
+			<!-- task_request.js to show the tasks -->
+			<script src="js/task_request.js"></script>
 		</div>
 
 		<!-- Modal for tasks editing -->
@@ -63,7 +66,7 @@
 
 						<div class="form-group">
 							<input type="text" name="edit-content" id="edit-content" class="form-control-input used" required>
-							<label for="content" class="form-label">Content</label>
+							<label for="content" class="form-label">Task</label>
 						</div>
 						<div class="form-group">
 							<input type="datetime-local" name="edit-date" id="edit-date" class="form-control-input" required>
@@ -80,16 +83,13 @@
 
 		<footer>
 			<div class="content content-footer">
-				© 2019 Julien Bruguet
+				© 2019 - Julien Bruguet
 			</div>
 		</footer>
 
 		<!-- Some script for my form (something I am working on ;-) ) -->
 		<script src="js/forms.js"></script>
 
-		<!-- Scripts needed for the page to work -->
-		<!-- task_request.js to show the tasks -->
-		<script src="js/task_request.js"></script>
 		<!-- task_action.js to add and manipulate tasks -->
 		<script src="js/task_action.js"></script>
 	</body>
