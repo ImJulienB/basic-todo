@@ -121,6 +121,18 @@ tr > td:nth-child(4) {
 	width: 104px;
 }
 
+tr:nth-child(n) {
+    background: transparent;
+}
+
+tr:nth-child(2n-1) {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+tr:first-child {
+	background: transparent;
+}
+
 
 
 
