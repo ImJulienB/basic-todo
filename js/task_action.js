@@ -91,9 +91,16 @@ $(function() {
                     action: action,
                     id: id
                 },
-                url: "php/tasks_action.php" // Script to use
+                url: "php/tasks_action.php", // Script to use
+                success: function() { // In case of success
+                        location.reload(); // Reload the current page
+                    },
+                    error: function(data) { // In case of error
+                        //alert("An error occured"); // Indicate that an error happened
+                        // (Every scripts on this file throws errors yet everything works somehow)
+                        location.reload(); // Reload
+                    }
             });
-            location.reload();
         }
     });
 });

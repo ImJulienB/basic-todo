@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Basic TODO list</title>
-
-		<!-- I don't want to deal with random characters -->
 		<meta charset="UTF-8">
-
-		<!-- So it doesn't look small as hell on smaller screens -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Basic TODO list</title>
 
 		<!-- My own stylesheet -->
 		<link rel="stylesheet" href="css/style.css">
@@ -18,7 +14,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="title">Basic TODO list</div>
+			<h1 class="title">Basic TODO list</h1>
 		</header>
 
 		<div class="content">
@@ -59,11 +55,11 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<span class="close">&times;</span>
-					<h3>Edit task</h3>
+					<h3 class="modal-title">Edit task</h3>
 				</div>
 
 				<div class="modal-body">
-					<form id="edit-form" class="form-control">
+					<form id="edit-form" class="form-control form-control-modal">
 
 						<div class="form-group">
 							<input type="text" name="edit-content" id="edit-content" class="form-control-input used" required>
@@ -76,14 +72,16 @@
 
 						<input type="hidden" name="action" id="edit-action" value="update">
 						<input type="hidden" name="id" id="edit-id">
-						<input type="submit" name="edit-submit" id="edit-submit" value="Edit" class="btn-add">
+						<input type="submit" name="edit-submit" id="edit-submit" value="Edit" class="btn-add btn-add-modal">
 					</form>
 				</div>
 			</div>
 		</div>
 
 		<footer>
-			© 2019 Julien Bruguet
+			<div class="content content-footer">
+				© 2019 Julien Bruguet
+			</div>
 		</footer>
 
 		<!-- Some script for my form (something I am working on ;-) ) -->
