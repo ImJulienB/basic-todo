@@ -21,37 +21,31 @@ body {
 
 header {
 	z-index: 1;
-	height: 60px; width: 100%;
-	background-color: #009688;
+	height: 48px; width: 100%;
+	background-color: #2979ff;
 	color: #fafafa;
-	font-size: 22px;
-	line-height: 60px;
+	line-height: 48px;
 	position: fixed;
 	top: 0;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
-			0 3px 1px -2px rgba(0,0,0,0.12),
-			0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
 header > .title {
-	padding-left: 20px;
-	padding-right: 20px;
+	margin: 0;
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: normal;
 }
 
 footer {
 	z-index: 1;
 	font-size: 14px;
-	line-height: 36px;
-	position: fixed;
+	line-height: 48px;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	background-color: #263238;
 	color: #FAFAFA75;
-	box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.14),
-			0 -3px 1px -2px rgba(0,0,0,0.12),
-			0 -1px 5px 0 rgba(0,0,0,0.20);
-			padding-left: 16px;
 }
 
 
@@ -61,12 +55,13 @@ footer {
 /* Content class styling */
 
 .content {
-	padding-right: 15px;
-    padding-left: 15px;
-	margin-top: 76px;
-	margin-bottom: 44px;
-    margin-right: auto;
-    margin-left: auto;
+	padding: 0 15px;
+    margin: 76px auto 44px auto;
+}
+
+.content-footer {
+	padding: 0 8px;
+	margin: 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -96,7 +91,7 @@ footer {
 .tasks-table {
 	width: 100%;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 24px;
 	border-collapse: collapse;
 	color: #212121;
@@ -133,26 +128,31 @@ tr > td:nth-child(4) {
 /* Buttons styling */
 
 .btn-add {
-	background-color: rgba(0, 0, 0, 0);
 	border: none;
-	background-color: #009688;
+	background-color: #2979ff;
 	color: #fafafa;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 56px;
 	height: 56px; width: 74px;
-	padding-left: 8px; padding-right: 8px;
+	padding: 0 8px;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
 	margin-left: 16px;
 }
 
+.btn-add-modal {
+	margin: 0 0 16px 0;
+}
+
 .btn-add:hover {
-	background-color: #26a69a;
+	background-color: #82b1ff;
+	color: #212121;
 	box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.20);
 }
 
 .btn-add:active {
-	background-color: #4db6ac;
+	background-color: #2962ff;
+	color: #fafafa;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
@@ -190,6 +190,7 @@ tr > td:nth-child(4) {
 
 .flex-center {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 
@@ -199,14 +200,21 @@ tr > td:nth-child(4) {
 	grid-template-rows: auto;
 }
 
+.form-control-modal {
+	display: block;
+}
+
 .form-group {
-	margin-left: 16px;
-	margin-bottom: 32px;
+	margin: 0 0 32px 16px;
 	position: relative;
 }
 
 .form-group:first-child {
 	margin-left: 0;
+}
+
+.form-control-modal > .form-group {
+	margin: 0 0 32px 0;
 }
 
 .form-group-helper {
@@ -216,44 +224,40 @@ tr > td:nth-child(4) {
 
 .form-control-input {
 	display: block;
-	background-color: rgba(0, 0, 0, 12%);
+	background-color: transparent;
 	border-style: none none solid none;
 	border-width: 1px;
 	border-color: rgba(0, 0, 0, 50%);
 	height: 56px;
 	width: 280px;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #00000099;
 	box-sizing: border-box;
-	padding-top: 15px;
-	padding-left: 12px;
-	padding-right: 12px;
+	padding: 15px 12px 0 12px;
 	transition: all 0.2s;
 }
 
 .form-control-input[type="datetime-local"] {
-	padding-top: 16px;
-	padding-left: 8px;
+	padding: 16px 0 0 8px;
 }
 
 .form-control-input:focus {
 	outline: none;
 	box-shadow: none;
 	border-width: 2px;
-	border-color: #009688;
+	border-color: #2979ff;
 	padding-top: 17px;
 }
 
 .form-control-input[type="datetime-local"]:focus {
-	padding-top: 16px;
-	padding-left: 8px;
+	padding: 16px 0 0 8px;
 }
 
 .form-label {
 	margin-left: 12px;
 	color: black;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: normal;
 	position: absolute;
 	pointer-events: none;
@@ -276,7 +280,7 @@ tr > td:nth-child(4) {
 	font-weight: bold;
 	top: 10px;
 	font-size: 12px;
-	color: #009688;
+	color: #2979ff;
 }
 
 
@@ -304,8 +308,8 @@ tr > td:nth-child(4) {
 	background-color: #fafafa;
 	margin: auto;
 	padding: 0;
+	width: 344px;
 	border: 1px solid #888;
-	width: 40%;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	-webkit-animation-name: animatetop;
 	-webkit-animation-duration: 0.4s;
@@ -321,6 +325,10 @@ tr > td:nth-child(4) {
 @keyframes animatetop {
 	from {top:-300px; opacity:0}
 	to {top:0; opacity:1}
+}
+
+.modal-title {
+	font-size: 16px;
 }
 
 .close {
