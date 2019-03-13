@@ -13,6 +13,12 @@ $.ajax({
                     ) // Closing the last td
                 ) // Closing the tr
             ); // Done adding stuff to the table
+            $("#task-people-select").append(
+                $('<option>').attr("value", item.id).text(item.name)
+            );
+            $("#edit-task-people-select").append(
+                $('<option>').attr("value", item.id).text(item.name)
+            );
         });
     }
 });
