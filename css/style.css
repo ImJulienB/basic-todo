@@ -172,7 +172,12 @@ tr:first-child {
 }
 
 .btn-add-modal {
-	margin: 0 0 16px 0;
+	margin: 0 0 14px 0;
+}
+
+.btn-add-login {
+	position: absolute;
+	right: 16px;
 }
 
 .btn-add:hover {
@@ -329,6 +334,11 @@ tr:first-child {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal-login {
+	display: block;
+	background-color: #2979ff;
+}
+
 .modal-content {
 	position: relative;
 	background-color: #fafafa;
@@ -338,6 +348,13 @@ tr:first-child {
 	-webkit-animation: animatetop 0.4s;
 	animation: animatetop 0.4s;
 	overflow: auto;
+}
+
+.modal-content-login {
+	width: 312px;
+	height: 305px;
+	-webkit-animation: none;
+	animation: none;
 }
 
 @-webkit-keyframes animatetop {
