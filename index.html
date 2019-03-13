@@ -32,11 +32,11 @@
 			<!-- Tasks list -->
 			<table class="tasks-table" id="tasks-table">
 				<tr>
-					<th>#</th><th>Date</th><th>Task</th><th>Actions</th>
+					<th>#</th><th>Person</th><th>Date</th><th>Task</th><th>Actions</th>
 				</tr>
 				<!-- Tasks will be added over here like this:
 				<tr>
-					<td>##</td> <td>DD/MM/AAAA HH:MM:SS</td> <td>Lorem ipsum...</td> <td>Buttons here</td>
+					<td>##</td> <td>Lorem ipsum...</td> <td>DD/MM/AAAA HH:MM:SS</td> <td>Lorem ipsum...</td> <td>Buttons here</td>
 				</tr>
 				-->
 			</table>
@@ -66,6 +66,13 @@
 							<input type="datetime-local" name="date" id="date" class="form-control-input" required>
 							<label for="date" class="form-label">Date</label>
 						</div>
+						<div>
+							<label for="people-id">Person</label><br>	
+							<select id="task-people-select" name="people-id">
+								<!-- People will be added here like this:
+								<option value="id-here">Lorem ipsum...</option>-->
+							</select>
+						</div><br>
 
 						<input type="submit" name="submit" id="add-submit" value="Add" class="btn-add btn-add-modal">
 						<input type="hidden" name="action" id="action" value="add">
@@ -94,6 +101,13 @@
 							<input type="datetime-local" name="edit-date" id="edit-date" class="form-control-input" required>
 							<label for="date" class="form-label">Date</label>
 						</div>
+						<div>
+							<label for="people-id">Person</label><br>	
+							<select id="edit-task-people-select" name="people-id">
+								<!-- People will be added here like this:
+								<option value="id-here">Lorem ipsum...</option>-->
+							</select>
+						</div><br>
 
 						<input type="hidden" name="action" id="edit-action" value="update">
 						<input type="hidden" name="id" id="edit-id">
@@ -124,18 +138,6 @@
 						<input type="hidden" name="action" id="people-action" value="add">
 					</form>
 
-					<!-- People list -->
-					<!--<div class="people-list">
-						<div class="list-heads">
-							<span>Name</span>
-							<span>Action</span>
-						</div>
-						<div class="list-row">
-							<span>Michel</span>
-							<span><button class="btn-delete" id="btn-people-delete" value="1"></button></span>
-						</div>
-					</div>-->
-
 					<table class="tasks-table" id="people-table">
 						<tr>
 							<th>Name</th> <th>Actions</th>
@@ -147,7 +149,6 @@
 						</tr>
 						-->
 					</table>
-
 					<!-- people_request.js to show people -->
 					<!-- Placed it here for optimal performances -->
 					<script src="js/people_request.js"></script>

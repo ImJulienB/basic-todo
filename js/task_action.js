@@ -56,6 +56,8 @@ $("#add-submit").click(function() {
 // Handling the edit button click event
 $("#tasks-table").on("click", "#task-btn-edit", function() {
     var id = $(this).val(); // Grabbing the ID which is the button's value
+    var peopleID = $(this).closest("tr").children(".task-people-id").attr("id");
+    
 
     var dateID = "#date-" + id;
     var contentID = "#task-content-" + id;
@@ -64,9 +66,12 @@ $("#tasks-table").on("click", "#task-btn-edit", function() {
     date = date.replace(/\s/g, "T");
     var content = $(this).closest("tr").children(contentID).text();
 
+
     document.getElementById("edit-content").value = content;
     document.getElementById("edit-date").value = date;
     document.getElementById("edit-id").value = id;
+    console.log(peopleID);
+    document.getElementById("edit-task-people-select").value = peopleID;
 
     var modal = document.getElementById("editmodal");
     var span = document.getElementsByClassName("edit-close")[0];

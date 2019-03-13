@@ -6,8 +6,10 @@
 - Scripts ready to use for mobile applications
 
 # To-do
-- [ ] 100% responsive
-- [ ] Add form modal
+- [x] 100% responsive
+- [x] Add form modal
+- [x] Add/delete people to the database
+- [x] Affect people to tasks and change a task's people affectation
 - [ ] Accounts system
 - [ ] Mobile application
 

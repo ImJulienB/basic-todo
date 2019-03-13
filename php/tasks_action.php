@@ -12,7 +12,8 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 				$content = htmlspecialchars($_GET["content"]); // Grabbing content's value + SQL injections proofing
 				$content = $db->quote($content); // Putting the content in quotes just to avoid troubles
 				$date = $db->quote($_GET["date"]); // Doing the same with the task's date
-				$prepare = "INSERT INTO task (date, content) VALUES ($date, $content)"; // Storing the request in a string variable
+				$peopleid = $_GET["people-id"];
+				$prepare = "INSERT INTO task (date, content, peopleid) VALUES ($date, $content, $peopleid)"; // Storing the request in a string variable
 				$add = $db->prepare($prepare); // Preparing the request
 				$add->execute(); // Executing the request
 			}
@@ -27,10 +28,8 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 				$date = $_GET["edit-date"];
 				$date = substr($date, 0, -3);
 				$date = $db->quote($date);
-				echo $content;
-				echo $id;
-				echo $date;
-				$prepare = "UPDATE task SET content = $content, date = $date WHERE id = $id";
+				$peopleid = $_GET["people-id"];
+				$prepare = "UPDATE task SET content = $content, date = $date, peopleid = $peopleid WHERE id = $id";
 				$update = $db->prepare($prepare); // Preparing the request
 				try {
 					$update->execute(); // Executing the request
