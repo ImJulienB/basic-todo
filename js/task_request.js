@@ -9,7 +9,6 @@ $.ajax({
             contentID = "task-content-" + item.id;
             $("#tasks-table").append( // Adding stuff to the table
                 $('<tr>').append( // Adding stuff to a newly created tr
-                    $('<td>').text(item.id), // Adding the ID to the first td
                     $('<td>').attr("class", "task-people-id").attr("id", item.peopleid).text(item.name),
                     $('<td>').attr("id", dateID).text(item.date), // Adding the date & time to the second td
                     $('<td>').attr("id", contentID).text(item.content), // Adding the task's content to the third td
