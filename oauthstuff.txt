@@ -1,0 +1,5 @@
+Client ID
+429223775582-f3rsfgpq327sr7jom0hkrdtd062m45k5.apps.googleusercontent.com
+
+Secret client code
+rkJr-Mmhz64810CulC6V-WSO
