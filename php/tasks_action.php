@@ -21,11 +21,11 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 
 		case "update":
 			// Editing an element
-			if (isset($_GET["id"]) && isset($_GET["edit-content"])) { // Checking if "id" and "content" exists as a GET parameter
-				$content = htmlspecialchars($_GET["edit-content"]); // Grabbing their values (+ SQL injection proofing the content)
+			if (isset($_GET["id"]) && isset($_GET["content"])) { // Checking if "id" and "content" exists as a GET parameter
+				$content = htmlspecialchars($_GET["content"]); // Grabbing their values (+ SQL injection proofing the content)
 				$content = $db->quote($content);
 				$id = $_GET["id"];
-				$date = $_GET["edit-date"];
+				$date = $_GET["date"];
 				$date = substr($date, 0, -3);
 				$date = $db->quote($date);
 				$peopleid = $_GET["people-id"];

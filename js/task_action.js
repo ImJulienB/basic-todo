@@ -42,27 +42,24 @@ document.getElementById("add-header-btn").addEventListener("click", function() {
 });
 
 // Handling the add button click event
-$("#add-submit").click(function() {
-    // Grabbing data from the form
-    var form = $("#add-form");
-    var formData = $(form).serialize();
-    // When the user clicks submit on the form
-    form.submit(function(event) {
-        event.preventDefault(); // Prevent the default action to happen
-        // a.k.a the form sending data to another page rather that doing it with AJAX
-        $.ajax({
-            data: formData, // Feeding AJAX some data to send (Hope it likes it)
-            url: "php/tasks_action.php", // Script to use
-            success: function() { // In case of success
-                location.reload(); // Reload the current page
-            },
-            error: function() { // In case of error
-                //alert("An error occured"); // Indicate that an error happened
-                // (Every scripts on this file throws errors yet everything works somehow)
-                location.reload(); // Reload
-            }
-        });
-    });
+document.getElementById("add-submit").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let xmlhttp = window.XMLHttpRequest ?
+        new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            location.reload();
+        }
+    }
+
+    let content = document.getElementById("content").value;
+    let date = document.getElementById("date").value;
+    let peopleid = document.getElementById("task-people-select").value;
+
+    xmlhttp.open("GET","php/tasks_action.php?action=add&content=" + content + "&date=" + date + "&people-id=" + peopleid, true);
+    xmlhttp.send();
 });
 
 // Handling the edit button click event
@@ -97,51 +94,45 @@ $("#tasks-table").on("click", "#task-btn-edit", function() {
             modal.style.display = "none";
         }
     }
+});
 
-    $("#edit-submit").click(function() {
-        var form = $("#edit-form");
-        var formData = $(form).serialize();
-        console.log(formData);
+document.getElementById("edit-submit").addEventListener("click", function(event) {
+    event.preventDefault();
 
-        form.submit(function(event) {
-            event.preventDefault(); // Prevent the default action to happen
+    let xmlhttp = window.XMLHttpRequest ?
+        new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 
-            $.ajax({
-                data: formData, // Putting some data to send
-                url: "php/tasks_action.php", // Script to use
-                success: function() { // In case of success
-                    location.reload(); // Reload the current page
-                },
-                error: function(data) { // In case of error
-                    //alert("An error occured"); // Indicate that an error happened
-                    // (Every scripts on this file throws errors yet everything works somehow)
-                    location.reload(); // Reload
-                }
-            });
-        });
-    });
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            location.reload();
+        }
+    }
+
+    let content = document.getElementById("edit-content").value;
+    let date = document.getElementById("edit-date").value;
+    let peopleid = document.getElementById("edit-task-people-select").value;
+    let id = document.getElementById("edit-id").value;
+
+    xmlhttp.open("GET","php/tasks_action.php?action=update&id=" + id +"&content=" + content + "&date=" + date + "&people-id=" + peopleid, true);
+    xmlhttp.send();
 });
 
 // Handling the remove button click event
 $("#tasks-table").on("click", "#task-btn-delete", function() {
     // Making sure the user wants to remove the entry
     if (confirm("Are you sure you want to remove this task?")) {
-        var action = "remove"; // Used for AJAX's data, indicating we want to remove something
         var id = $(this).val(); // Grabbing the ID which is the button's value
-        $.ajax({
-            data: { // Putting some data to send
-                action: action,
-                id: id
-            },
-            url: "php/tasks_action.php", // Script to use
-            success: function() { // In case of success
-                    location.reload(); // Reload the current page
-                },
-                error: function(data) { // In case of error
-                    //alert("An error occured"); // Indicate that an error happened
-                    // (Every scripts on this file throws errors yet everything works somehow)
-                    location.reload(); // Reload
-                }
-        });
+
+        let xmlhttp = window.XMLHttpRequest ?
+        new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                location.reload();
+            }
+        }
+
+        xmlhttp.open("GET","php/tasks_action.php?action=remove&id=" + id, true);
+        xmlhttp.send();
     }
 });
