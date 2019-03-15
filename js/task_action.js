@@ -62,36 +62,39 @@ document.getElementById("add-submit").addEventListener("click", function(event) 
     xmlhttp.send();
 });
 
-// Handling the edit button click event
-$("#tasks-table").on("click", "#task-btn-edit", function() {
-    var id = $(this).val(); // Grabbing the ID which is the button's value
-    var peopleID = $(this).closest("tr").children(".task-people-id").attr("id"); // Grabbing the affected person's id
-    
-    var dateID = "#date-" + id;
-    var contentID = "#task-content-" + id;
+// Handling the edit buttons click event
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id== 'task-btn-edit'){//do something}
 
-    var date = $(this).closest("tr").children(dateID).text();
-    date = date.replace(/\s/g, "T");
-    var content = $(this).closest("tr").children(contentID).text();
+        var id = e.target.value;
+        var peopleID = e.target.parentNode.parentNode.children[0].id; // Grabbing the affected person's id
+        
+        var dateID = "#date-" + id;
+        var contentID = "#task-content-" + id;
+
+        var date = e.target.parentNode.parentNode.children[1].innerHTML;
+        date = date.replace(/\s/g, "T");
+        var content = e.target.parentNode.parentNode.children[2].innerHTML;
 
 
-    document.getElementById("edit-content").value = content;
-    document.getElementById("edit-date").value = date;
-    document.getElementById("edit-id").value = id;
-    document.getElementById("edit-task-people-select").value = peopleID;
+        document.getElementById("edit-content").value = content;
+        document.getElementById("edit-date").value = date;
+        document.getElementById("edit-id").value = id;
+        document.getElementById("edit-task-people-select").value = peopleID;
 
-    var modal = document.getElementById("editmodal");
-    var span = document.getElementsByClassName("edit-close")[0];
+        var modal = document.getElementById("editmodal");
+        var span = document.getElementsByClassName("edit-close")[0];
 
-    modal.style.display = "block";
+        modal.style.display = "block";
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        span.onclick = function() {
             modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     }
 });
