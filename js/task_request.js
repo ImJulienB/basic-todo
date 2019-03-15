@@ -1,22 +1,52 @@
 // This script fires once you load the page, no event listeners here!
-var dateID;
-var contentID;
-$.ajax({
-    url: "php/tasks_request.php", // The script to use
-    success: function(data) { // In case of success
-        $.each(data, function(i, item) { // Foreach equivalent, to show the result of the script
+let dateID;
+let contentID;
+
+let requesttask = new XMLHttpRequest();
+requesttask.open('GET', 'php/tasks_request.php', true);
+
+requesttask.onload = function() {
+    if (requesttask.status >= 200 && requesttask.status < 400) {
+        // Success!
+        let data = JSON.parse(requesttask.responseText);
+        data.forEach(function(item, i) {
             dateID = "date-" + item.id;
             contentID = "task-content-" + item.id;
-            $("#tasks-table").append( // Adding stuff to the table
-                $('<tr>').append( // Adding stuff to a newly created tr
-                    $('<td>').attr("class", "task-people-id").attr("id", item.peopleid).text(item.name),
-                    $('<td>').attr("id", dateID).text(item.date), // Adding the date & time to the second td
-                    $('<td>').attr("id", contentID).text(item.content), // Adding the task's content to the third td
-                    $('<td>').append( // Adding the buttons here, have to open this one
-                        $('<button class="btn-edit" id="task-btn-edit" value="' + item.id + '"></button><button class="btn-delete" id="task-btn-delete" value="' + item.id + '"></button>')
-                    ) // Closing the last td
-                ) // Closing the tr
-            ); // Done adding stuff to the table
+
+            let tr = document.createElement("tr");
+                let tdpeople = document.createElement("td");
+                    tdpeople.classList.add("task-people-id");
+                    tdpeople.setAttribute("id", item.peopleid);
+                    tdpeople.innerHTML = item.name;
+                tr.appendChild(tdpeople);
+
+                let tddate = document.createElement("td");
+                    tddate.setAttribute("id", dateID);
+                    tddate.innerHTML = item.date;
+                tr.appendChild(tddate);
+
+                let tdtask = document.createElement("td");
+                    tdtask.setAttribute("id", contentID);
+                    tdtask.innerHTML = item.content;
+                tr.appendChild(tdtask);                
+
+                let tdactions = document.createElement("td");
+                    let btnedit = document.createElement("button");
+                        btnedit.classList.add("btn-edit");
+                        btnedit.setAttribute("id", "task-btn-edit");
+                        btnedit.value = item.id;
+                    tdactions.appendChild(btnedit);
+
+                    let btndel = document.createElement("button");
+                        btndel.classList.add("btn-delete");
+                        btndel.setAttribute("id", "task-btn-delete");
+                        btndel.value = item.id;
+                    tdactions.appendChild(btndel);
+                tr.appendChild(tdactions);
+
+            document.getElementById("tasks-table").appendChild(tr);
         });
     }
-});
+};
+
+requesttask.send();
