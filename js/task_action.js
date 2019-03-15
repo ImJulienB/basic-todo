@@ -62,8 +62,8 @@ document.getElementById("add-submit").addEventListener("click", function(event) 
     xmlhttp.send();
 });
 
-// Handling the edit buttons click event
 document.addEventListener('click',function(e){
+    // Handling the edit buttons click event
     if(e.target && e.target.id== 'task-btn-edit'){//do something}
 
         var id = e.target.value;
@@ -97,6 +97,23 @@ document.addEventListener('click',function(e){
             }
         }
     }
+    if(e.target && e.target.id == "task-btn-delete") {
+        if (confirm("Are you sure you want to remove this task?")) {
+            var id = e.target.value; // Grabbing the ID which is the button's value
+
+            let xmlhttp = window.XMLHttpRequest ?
+            new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    location.reload();
+                }
+            }
+
+            xmlhttp.open("GET","php/tasks_action.php?action=remove&id=" + id, true);
+            xmlhttp.send();
+        }
+    }
 });
 
 document.getElementById("edit-submit").addEventListener("click", function(event) {
@@ -118,24 +135,4 @@ document.getElementById("edit-submit").addEventListener("click", function(event)
 
     xmlhttp.open("GET","php/tasks_action.php?action=update&id=" + id +"&content=" + content + "&date=" + date + "&people-id=" + peopleid, true);
     xmlhttp.send();
-});
-
-// Handling the remove button click event
-$("#tasks-table").on("click", "#task-btn-delete", function() {
-    // Making sure the user wants to remove the entry
-    if (confirm("Are you sure you want to remove this task?")) {
-        var id = $(this).val(); // Grabbing the ID which is the button's value
-
-        let xmlhttp = window.XMLHttpRequest ?
-        new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                location.reload();
-            }
-        }
-
-        xmlhttp.open("GET","php/tasks_action.php?action=remove&id=" + id, true);
-        xmlhttp.send();
-    }
 });
