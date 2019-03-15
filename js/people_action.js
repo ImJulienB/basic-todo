@@ -43,25 +43,23 @@ document.getElementById("add-people-submit").addEventListener("click", function(
 });
 
 // Handling the remove button click event
-$("#people-table").on("click", "#people-btn-delete", function() {
-    // Making sure the user wants to remove the entry
-    if (confirm("Are you sure you want to remove this person from the list? (Make sure you removed tasks affected to this person before)")) {
-        var action = "remove"; // Used for AJAX's data, indicating we want to remove something
-        var id = $(this).val(); // Grabbing the ID which is the button's value
-        $.ajax({
-            data: { // Putting some data to send
-                action: action,
-                id: id
-            },
-            url: "php/people_action.php", // Script to use
-            success: function() { // In case of success
-                    location.reload(); // Reload the current page
-                },
-                error: function(data) { // In case of error
-                    //alert("An error occured"); // Indicate that an error happened
-                    // (Every scripts on this file throws errors yet everything works somehow)
-                    location.reload(); // Reload
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id== 'people-btn-delete'){
+        // Making sure the user wants to remove the entry
+        if (confirm("Are you sure you want to remove this person from the list? (Make sure you removed tasks affected to this person before)")) {
+            var id = e.target.value; // Grabbing the ID which is the button's value
+
+            let xmlhttp = window.XMLHttpRequest ?
+            new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    location.reload();
                 }
-        });
+            }
+
+            xmlhttp.open("GET","php/people_action.php?action=remove&id=" + id, true);
+            xmlhttp.send();
+        }
     }
 });
