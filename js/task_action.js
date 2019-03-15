@@ -64,7 +64,7 @@ document.getElementById("add-submit").addEventListener("click", function(event) 
 
 document.addEventListener('click',function(e){
     // Handling the edit buttons click event
-    if(e.target && e.target.id== 'task-btn-edit'){//do something}
+    if(e.target && e.target.id== 'task-btn-edit'){
 
         var id = e.target.value;
         var peopleID = e.target.parentNode.parentNode.children[0].id; // Grabbing the affected person's id

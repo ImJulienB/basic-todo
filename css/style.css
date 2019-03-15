@@ -324,7 +324,7 @@ tr:first-child {
 	transition: 0.2s ease all;
 }
 
-.form-control-input:focus ~ .form-label, .form-control-input.used ~ .form-label {
+.form-control-input:focus ~ .form-label, .form-control-input:valid ~ .form-label {
 	font-weight: bold;
 	top: 10px;
 	font-size: 12px;
