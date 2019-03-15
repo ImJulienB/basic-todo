@@ -6,3 +6,12 @@ document.addEventListener('scroll', function() { // Adding an event listener on 
 		document.getElementsByTagName("header")[0].classList.remove("shadow"); // Remove the shadow class
 	}
 });
+
+// Same but for the add people modal's header
+document.getElementById("add-people-content").addEventListener('scroll', function() {
+	if (this.scrollTop != 0) {
+		document.getElementById("add-people-header").classList.add("shadow");
+	} else {
+		document.getElementById("add-people-header").classList.remove("shadow");
+	}
+});
