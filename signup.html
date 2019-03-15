@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Basic TODO list - Login</title>
+		<title>Basic TODO list - Signup</title>
 
 		<!-- My own stylesheet -->
 		<link rel="stylesheet" href="css/style.css">
@@ -31,9 +31,13 @@
 							<input type="password" name="password" id="password" class="form-control-input" required>
 							<label for="password" class="form-label">Password</label>
 						</div>
+						<div class="form-group">
+							<input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control-input" required>
+							<label for="passwordconfirm" class="form-label">Confirm password</label>
+						</div>
 
-						<input type="submit" name="login" id="login" value="Login" class="btn-add <btn-add-modal btn-add-login">
-						<button class="btn-add btn-add-modal btn-signup" onclick="window.location = 'signup.html'">Signup</button>
+						<input type="submit" name="signup" id="signup" value="Sign up" class="btn-add <btn-add-modal btn-add-login">
+						<button class="btn-add btn-add-modal btn-signup" onclick="window.location = 'login.html'">Login</button>
 					</form>
 				</div>
 			</div>
