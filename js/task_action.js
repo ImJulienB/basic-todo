@@ -50,7 +50,8 @@ document.getElementById("add-submit").addEventListener("click", function(event) 
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            location.reload();
+            taskrequest();
+            document.getElementById("addmodal").style.display = "none";
         }
     }
 
@@ -106,7 +107,8 @@ document.addEventListener('click',function(e){
 
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    location.reload();
+                    taskrequest();
+                    modal.style.display = "none";
                 }
             }
 
@@ -124,7 +126,8 @@ document.getElementById("edit-submit").addEventListener("click", function(event)
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            location.reload();
+            taskrequest();
+            document.getElementById("editmodal").style.display = "none";
         }
     }
 
