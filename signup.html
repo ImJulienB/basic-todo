@@ -7,10 +7,6 @@
 
 		<!-- My own stylesheet -->
 		<link rel="stylesheet" href="css/style.css">
-
-		<!-- Jquery so I can use AJAX and other stuff -->
-		<script src="js/jquery-3.3.1.min.js"></script>
-
 	</head>
 	<body>
 		<div class="modal modal-login">
@@ -21,7 +17,7 @@
 				</div>
 
 				<div class="modal-body">
-					<form id="login-form" class="form-control form-control-modal">
+					<form id="login-form" class="form-control form-control-modal" method="POST">
 
 						<div class="form-group">
 							<input type="text" name="username" id="username" class="form-control-input" required>
@@ -33,17 +29,17 @@
 						</div>
 						<div class="form-group">
 							<input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control-input" required>
-							<label for="passwordconfirm" class="form-label">Confirm password</label>
+							<label for="passwordconfirm" class="form-label" id="confirmlabel">Confirm password</label>
 						</div>
 
-						<input type="submit" name="signup" id="signup" value="Sign up" class="btn-add <btn-add-modal btn-add-login">
-						<button class="btn-add btn-add-modal btn-signup" onclick="window.location = 'login.html'">Login</button>
+						<input type="submit" name="signup" id="signup" value="Sign up" class="btn-add btn-add-modal btn-add-login" disabled>
+						<button class="btn-add btn-add-modal btn-signup" id="login">Login</button>
 					</form>
 				</div>
 			</div>
 		</div>
 
-		<!-- Some script for my form (something I am working on ;-) ) -->
-		<script src="js/forms.js"></script>
+		<script src="js/cookies.js"></script>
+		<script src="js/signup.js"></script>
 	</body>
 </html>
