@@ -24,6 +24,11 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 				$remove = $db->prepare("DELETE FROM people WHERE id = :id"); // Preparing the request
 				$remove->bindValue(":id", $id); // Binding values
 				$remove->execute(); // Executing the request
+
+				// Let's do the same for every tasks affected to this person
+				$remove = $db->prepare("DELETE FROM task WHERE peopleid = :id");
+				$remove->bindValue(":id", $id);
+				$remove->execute();
 			}
 			break;
 	}

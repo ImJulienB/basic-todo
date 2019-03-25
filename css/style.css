@@ -217,6 +217,19 @@ tr:first-child {
 	cursor: pointer;
 }
 
+.btn-add:disabled {
+	background-color: grey;
+}
+
+.btn-add:disabled:hover {
+	color: white;
+	box-shadow: none;
+}
+
+.btn-add:disabled:active {
+	box-shadow: none;
+}
+
 .btn-edit {
 	margin-right: 8px;
 	background-image: url("../img/edit_black.png");
