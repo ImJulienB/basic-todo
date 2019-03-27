@@ -31,7 +31,7 @@ document.getElementById("signup").addEventListener("click", function(event) {
 
 	var http = new XMLHttpRequest();
 	var url = "php/signup.php";
-	var params = "username=" + username + "password=" + password;
+	var params = "username=" + username + "&password=" + password;
 	http.open('POST', url, true);
 
 	// Send the proper header information along with the request
@@ -41,10 +41,11 @@ document.getElementById("signup").addEventListener("click", function(event) {
     	if(http.readyState == 4 && http.status == 200) {
     		// Success
     		var response = http.responseText;
-        	if (response == "1") {
+        	if (response == "exists") {
         		alert("This user already exists.");
         	} else {
-        		setCookie("username", username, "1");
+        		setCookie("username", username);
+        		setCookie("userid", response);
         		window.location = "./";
         	}
     	}
