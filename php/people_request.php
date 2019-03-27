@@ -2,7 +2,8 @@
 
 require("db_connect.php");
 
-$request = $db->prepare("SELECT * FROM people ORDER BY name"); // Preparing the request to grab everything from the task table
+$request = $db->prepare("SELECT * FROM people WHERE userid = :userid ORDER BY name"); // Preparing the request to grab everything from the people table
+$request->bindValue(":userid", $_COOKIE["userid"]);
 $request->execute(); // Firing it
 
 $response = $request->fetchAll(PDO::FETCH_ASSOC); // Fetching data from the request

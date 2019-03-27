@@ -28,14 +28,15 @@ document.getElementById("login").addEventListener("click", function(event) {
     		var response = http.responseText;
     		console.log(response);
     		switch (response) {
-    			case "2": // User does not exist
+    			case "noexist": // User does not exist
     				alert("This user does not exist.");
     				break;
-    			case "1": // Wrong password
+    			case "incorrect": // Wrong password
     				alert("Incorrect password.");
     				break;
-    			case "0":
-    				setCookie("username", username, "1");
+    			default:
+    				setCookie("username", username);
+    				setCookie("userid", response);
         			window.location = "./";
         			break;
     		}

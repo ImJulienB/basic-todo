@@ -13,7 +13,8 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 				$content = $db->quote($content); // Putting the content in quotes just to avoid troubles
 				$date = $db->quote($_GET["date"]); // Doing the same with the task's date
 				$peopleid = $_GET["people-id"];
-				$prepare = "INSERT INTO task (date, content, peopleid) VALUES ($date, $content, $peopleid)"; // Storing the request in a string variable
+				$userid = $_COOKIE["userid"];
+				$prepare = "INSERT INTO task (date, content, peopleid, userid) VALUES ($date, $content, $peopleid, $userid)"; // Storing the request in a string variable
 				$add = $db->prepare($prepare); // Preparing the request
 				$add->execute(); // Executing the request
 			}

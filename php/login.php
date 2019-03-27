@@ -20,12 +20,16 @@ if ($rqt->rowCount() > 0) { // Checking if the account exists
 	$hash = $rqt->fetch();
 	$password = $_POST["password"];
 
-	if (password_verify($password, $hash[0])) // Correct password
-		echo "0";
-	else // Incorrect password
-		echo "1";
+	if (password_verify($password, $hash[0])) {// Correct password
+		$rqt = $db->prepare("SELECT id FROM users WHERE username = :user");
+		$rqt->bindValue(":user", $username[0]);
+		$rqt->execute();
+		$row = $rqt->fetch();
+		echo $row["id"];
+	} else // Incorrect password
+		echo "incorrect";
 } else { // The account does not exist
-	echo "2";
+	echo "noexist";
 }
 
 ?>

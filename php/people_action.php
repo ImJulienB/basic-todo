@@ -11,7 +11,8 @@ if (isset($_GET["action"])) { // Checking if "action" exists as a GET parameter
 			if (isset($_GET["name"])) { // Checking if a content was added to the GET request
 				$name = htmlspecialchars($_GET["name"]); // Grabbing content's value + SQL injections proofing
 				$name = $db->quote($name); // Putting the content in quotes just to avoid troubles
-				$prepare = "INSERT INTO people (name) VALUES ($name)"; // Storing the request in a string variable
+				$userid = $_COOKIE["userid"];
+				$prepare = "INSERT INTO people (name, userid) VALUES ($name, $userid)"; // Storing the request in a string variable
 				$add = $db->prepare($prepare); // Preparing the request
 				$add->execute(); // Executing the request
 			}
