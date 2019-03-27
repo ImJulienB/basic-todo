@@ -5,6 +5,7 @@
 - Fully open-source
 - Full all-in-one browser interface with a beautiful Material Design inspired interface
 - Native JavaScript for optimal performances, no jQuery here!
+- No framework either for optimal performances
 - Ready for mobile apps
 
 # To-do
