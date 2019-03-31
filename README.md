@@ -1,7 +1,7 @@
 # Basic To-Do
 'Basic To-Do' is a simple barebones 'To-Do list' web and mobile service. It is part of my studies.
 
-# Features
+## Features
 - Fully open-source
 - Full all-in-one browser interface with a beautiful Material Design inspired interface
 - Native JavaScript for optimal performances, no jQuery here!
